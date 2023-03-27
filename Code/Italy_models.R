@@ -55,7 +55,7 @@ setwd("Tables")
 res_P1_Temp_Italy$Gam[,3:6] <- apply(res_P1_Temp_Italy$Gam[,3:6], 2, function(x){
     results <- p.adjust(x, method = "fdr")  
 })
-write.csv(res_P1_Temp_Italy$Gam, file = "Results_P1_Temp_Italy.csv")
+write.csv(res_P1_Temp_Italy$Gam, file = "Results_P1_Temperature_Italy.csv")
 
 #Calculate adjust p-values
 res_P1_SH_Italy$Gam[,3:6] <- apply(res_P1_SH_Italy$Gam[,3:6], 2, function(x){
@@ -99,7 +99,7 @@ setwd("Tables")
 res_P2_Temp_Italy$Gam[,3:6] <- apply(res_P2_Temp_Italy$Gam[,3:6], 2, function(x){
     results <- p.adjust(x, method = "fdr")  
 })
-write.csv(res_P2_Temp_Italy$Gam, file = "Results_P2_Temp_Italy.csv")
+write.csv(res_P2_Temp_Italy$Gam, file = "Results_P2_Temperature_Italy.csv")
 
 #Calculate adjust p-values
 res_P2_SH_Italy$Gam[,3:6] <- apply(res_P2_SH_Italy$Gam[,3:6], 2, function(x){

@@ -40,7 +40,7 @@ res_P1_Temp_Spain <- GamModel_Temp(Re, Temperature, StringencyIndex,
 res_P1_SH_Spain <- GamModel_SH(Re, SH, StringencyIndex, 
     Vac, variants)
 
-#Save models results P1 adn data
+#Save models results P1 and data
 setwd("Data")
 save(res_P1_Temp_Spain, res_P1_SH_Spain, file = "GAM_Spain_P1.RData")
 setwd("..")
@@ -56,7 +56,7 @@ res_P1_SH_Spain$Gam[,3:6] <- apply(res_P1_SH_Spain$Gam[,3:6], 2, function(x){
     results <- p.adjust(x, method = "fdr")  
 })
 
-write.csv(res_P1_Temp_Spain$Gam, file = "Results_P1_Temp_Spain.csv")
+write.csv(res_P1_Temp_Spain$Gam, file = "Results_P1_Temperature_Spain.csv")
 write.csv(res_P1_SH_Spain$Gam, file = "Results_P1_SH_Spain.csv")
 
 setwd("..")
@@ -96,7 +96,7 @@ setwd("Tables")
 res_P2_Temp_Spain$Gam[,3:6] <- apply(res_P2_Temp_Spain$Gam[,3:6], 2, function(x){
     results <- p.adjust(x, method = "fdr")  
 })
-write.csv(res_P2_Temp_Spain$Gam, file = "Results_P2_Temp_Spain.csv")
+write.csv(res_P2_Temp_Spain$Gam, file = "Results_P2_Temperature_Spain.csv")
 
 res_P2_SH_Spain$Gam[,3:6] <- apply(res_P2_SH_Spain$Gam[,3:6], 2, function(x){
     results <- p.adjust(x, method = "fdr")  

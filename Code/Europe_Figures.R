@@ -74,7 +74,7 @@ r_P2$Period <- rep("P2", nrow(r_P2))
 res_total <- rbind(r_P1, r_P2)
 
 #Create and Save the plot
-setwd("Supplementary_Figures")
+setwd("Figures")
 
 vars <- c("P1"="#0070bb", "P2" ="#f1c037")
 Gam_Temp_Europe <- ggplot() +
@@ -106,7 +106,7 @@ Gam_Temp_Europe <- ggplot() +
         legend.box.margin=margin(t = -6)
         )
 ggsave(
-    filename = "Gam_Temp_Europe.pdf",
+    filename = "Supplementary_Figure_7.pdf",
     plot = Gam_Temp_Europe,
     scale = 1,
     width = 1000,
@@ -116,7 +116,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_Temp_Europe.jpeg",
+    filename = "Supplementary_Figure_7.jpeg",
     plot = Gam_Temp_Europe,
     scale = 1,
     width = 1400,
@@ -182,7 +182,7 @@ r_P2$Period <- rep("P2", nrow(r_P2))
 res_total <- rbind(r_P1, r_P2)
 
 #Create and Save the plot
-setwd("Supplementary_Figures")
+setwd("Figures")
 
 vars <- c("P1"="#0070bb", "P2" ="#f1c037")
 Gam_SH_Europe <- ggplot() +
@@ -214,7 +214,7 @@ Gam_SH_Europe <- ggplot() +
         legend.box.margin=margin(t = -6)
     )
 ggsave(
-    filename = "Gam_SH_Europe.pdf",
+    filename = "Supplementary_Figure_8.pdf",
     plot = Gam_SH_Europe,
     scale = 1,
     width = 1000,
@@ -224,7 +224,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_SH_Europe.jpeg",
+    filename = "Supplementary_Figure_8.jpeg",
     plot = Gam_SH_Europe,
     scale = 1,
     width = 1400,
@@ -287,7 +287,7 @@ VacEurope$Country <- paises
 
 
 #Create and save the plor
-setwd("Supplementary_Figures")
+setwd("Figures")
 my_colors <- c("#1f78b4", "#33a02c", "#e31a1c", "#ff7f00", "#6a3d9a", "#a6cee3", 
     "#b2df8a", "#fb9a99", "#fdbf6f")
 Vaccination_Europe <- ggplot(VacEurope, aes(dates)) +
@@ -314,7 +314,7 @@ Vaccination_Europe <- ggplot(VacEurope, aes(dates)) +
         strip.background = element_rect(fill = "white")
     )
 ggsave(
-    filename = "Vaccination_Europe.pdf",
+    filename = "Supplementary_Figure_9.pdf",
     plot = Vaccination_Europe,
     scale = 1,
     width = 1000,
@@ -324,7 +324,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Vaccination_Europe.jpeg",
+    filename = "Supplementary_Figure_9.jpeg",
     plot = Vaccination_Europe,
     scale = 1,
     width = 1400,

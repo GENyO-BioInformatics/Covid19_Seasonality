@@ -71,7 +71,6 @@ for (i in 1:length(r_P1)){
 }
 
 
-
 names_com <- names(r_P1)
 names_com[c(1,2,4,5,6,7,8,9,12,14,15,16)] <- c("Andalusia", "Aragon",
     "Castilla y Leon ","Castille-La Mancha",
@@ -132,7 +131,7 @@ Gam_Temp_Spain  <- ggplot() +
     
 
 ggsave(
-    filename = "Gam_Temp_Spain.pdf",
+    filename = "Fig2.pdf",
     plot = Gam_Temp_Spain,
     scale = 1,
     width = 1000,
@@ -142,7 +141,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_Temp_Spain.jpeg",
+    filename = "Fig2.jpeg",
     plot = Gam_Temp_Spain,
     scale = 1,
     width = 1400,
@@ -236,7 +235,7 @@ Gam_P1_Temp_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Gam_P1_Temp_Spain.pdf",
+    filename = "Supplementary_Figure_3.pdf",
     plot = Gam_P1_Temp_Spain,
     scale = 1,
     width = 1000,
@@ -246,7 +245,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_P1_Temp_Spain.jpeg",
+    filename = "Supplementary_Figure_3.jpeg",
     plot = Gam_P1_Temp_Spain,
     scale = 1,
     width = 1400,
@@ -291,7 +290,7 @@ Gam_P2_Temp_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Gam_P2_Temp_Spain.pdf",
+    filename = "Supplementary_Figure_4.pdf",
     plot = Gam_P2_Temp_Spain,
     scale = 1,
     width = 1000,
@@ -301,7 +300,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_P2_Temp_Spain.jpeg",
+    filename = "Supplementary_Figure_4.jpeg",
     plot = Gam_P2_Temp_Spain,
     scale = 1,
     width = 1400,
@@ -417,7 +416,7 @@ Gam_SH_Spain <- ggplot() +
 
 
 ggsave(
-    filename = "Gam_SH_Spain.pdf",
+    filename = "Fig3.pdf",
     plot = Gam_SH_Spain,
     scale = 1,
     width = 1000,
@@ -427,7 +426,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_SH_Spain.jpeg",
+    filename = "Fig3.jpeg",
     plot = Gam_SH_Spain,
     scale = 1,
     width = 1400,
@@ -522,7 +521,7 @@ Gam_P1_SH_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Gam_P1_SH_Spain.pdf",
+    filename = "Supplementary_Figure_5.pdf",
     plot = Gam_P1_SH_Spain,
     scale = 1,
     width = 1000,
@@ -532,7 +531,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_P1_SH_Spain.jpeg",
+    filename = "Supplementary_Figure_5.jpeg",
     plot = Gam_P1_SH_Spain,
     scale = 1,
     width = 1400,
@@ -578,7 +577,7 @@ Gam_P2_SH_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Gam_P2_SH_Spain.pdf",
+    filename = "Supplementary_Figure_6.pdf",
     plot = Gam_P2_SH_Spain,
     scale = 1,
     width = 1000,
@@ -588,7 +587,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_P2_SH_Spain.jpeg",
+    filename = "Supplementary_Figure_6.jpeg",
     plot = Gam_P2_SH_Spain,
     scale = 1,
     width = 1400,
@@ -614,102 +613,6 @@ load("Data/FullPeriod_Spain.RData")
 #################################
 # Evolution of pandemic graphics
 #################################
-
-
-
-##########################################
-### Evolution of Re and period
-#########################################
-#Load data
-load("Data/FullPeriod_Spain.RData")
-
-dat <- list()
-for(i in 1:nrow(Re)){
-    datos <- data.frame(Re[i,], SH[i,], colnames(Re), variants)
-    datos$Period <- NA
-    datos[which(rownames(datos)=="2020-06-01"): which(rownames(datos)=="2020-12-31"),]$Period <- "P1"
-    datos[which(rownames(datos)=="2021-06-01"): which(rownames(datos)=="2021-12-31"),]$Period <- "P2"
-    names(datos) <- c("Re", "SH", "date", "variants", "Period")
-    datos$date <- as.Date(datos$date)
-    dat <- list.append(dat, datos)
-}
-
-
-names(dat) <- rownames(Re)
-names(dat)[c(1,2,4,5,6,7,8,9,12,14,15,16)] <- c("Andalusia", "Aragon",
-    "Castilla y Leon","Castille-La Mancha",
-    "Catalonia", "Madrid", "Navarre", "C. Valenciana", "The Balearic Islands",
-    "Basque Country", "Asturias", "Murcia")
-data2 <- list(dat, nom = names(dat))
-names(data2) <- c("dat", "nom")
-
-
-for(i in names(dat)){
-    dat[[i]]$Country = i
-}
-com = do.call("rbind",dat)
-coeff <- 10
-
-setwd("Figures")
-
-Evolution_Re_Period <- ggplot(com, aes(x = date)) +
-    facet_wrap(~Country,scales = "free") +
-    #P1
-    annotate("rect",
-        xmin = as.Date("2020-06-01"),
-        xmax = as.Date("2020-12-31"),
-        ymin = -Inf,
-        ymax = Inf, fill = "#0070bb", alpha = 0.2) +
-    #P2
-    annotate("rect",
-        xmin = as.Date("2021-06-01"),
-        xmax = as.Date("2021-12-31"),
-        ymin = -Inf,
-        ymax = Inf, fill = "#f1c037", alpha = 0.2) +
-    geom_line(aes(y = Re, color = Period), alpha = 0.4, linewidth = 0.2) +
-    scale_color_manual(name='Period:',
-        values=c('P1'='#0070bb', 'P2'='#f1c037')) +
-    labs(x = "Date", y = bquote(R[e])) +
-    geom_line(aes(y = Re), linewidth = 0.2) +
-    theme(legend.position = "bottom",
-        legend.text = element_text(size = 4),
-        text = element_text(size = 4),
-        strip.text.x = element_text(size = 3, margin = margin(2,2,2,2)),
-        legend.key.size = unit(0.2, "cm"),
-        axis.ticks = element_line(linewidth = 0.1),
-        axis.ticks.length = unit(0.05, "cm"),
-        axis.line = element_line(linewidth = 0.1),
-        panel.spacing = unit(0.1, "lines"),
-        axis.text.x = element_text(margin = margin(t = 0.5, b = 0.5), vjust = 0.5),
-        axis.text.y = element_text(margin = margin(r = 0.5, l = 0.5),hjust = 1),
-        panel.grid = element_line(linewidth = 0.1,color = "#f2f2f2"),
-        panel.background = element_rect(fill = "white"),
-        strip.background = element_rect(fill = "white")
-        )
-
-ggsave(
-    filename = "Evolution_Re_Period.pdf",
-    plot = Evolution_Re_Period,
-    scale = 1,
-    width = 1000,
-    height  = 800,
-    units = "px",
-    dpi = 300
-)
-
-ggsave(
-    filename = "Evolution_Re_Period.jpeg",
-    plot = Evolution_Re_Period,
-    scale = 1,
-    width = 1400,
-    height  = 1200,
-    units = "px",
-    dpi = 300
-)
-
-rm(list = ls())
-setwd("..")
-
 
 
 #######################
@@ -797,7 +700,7 @@ Re_vs_Temperature <- ggplot(data = com, aes(x = date)) +
     
     
 ggsave(
-    filename = "Re_vs_Temperature.pdf",
+    filename = "Fig1.pdf",
     plot = Re_vs_Temperature,
     scale = 1,
     width = 1200,
@@ -808,7 +711,7 @@ ggsave(
 
 
 ggsave(
-    filename = "Re_vs_Temperature.jpeg",
+    filename = "Fig1.jpeg",
     plot = Re_vs_Temperature,
     scale = 1,
     width = 1400,
@@ -902,7 +805,7 @@ Re_vs_SH <- ggplot(data = com, aes(x = date)) +
 
 
 ggsave(
-    filename = "Re_vs_SH.pdf",
+    filename = "Supplementary_Figure_1.pdf",
     plot = Re_vs_SH,
     scale = 1,
     width = 1200,
@@ -913,7 +816,7 @@ ggsave(
 
 
 ggsave(
-    filename = "Re_vs_SH.jpeg",
+    filename = "Supplementary_Figure_1.jpeg",
     plot = Re_vs_SH,
     scale = 1,
     width = 1400,
@@ -1008,7 +911,7 @@ Vac_vs_SI <- ggplot(data = com, aes(x = date)) +
 
 
 ggsave(
-    filename = "Vac_vs_SI.pdf",
+    filename = "Supplementary_Figure_2.pdf",
     plot = Vac_vs_SI,
     scale = 1,
     width = 1200,
@@ -1018,7 +921,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Vac_vs_SI.jpeg",
+    filename = "Supplementary_Figure_2.jpeg",
     plot = Vac_vs_SI,
     scale = 1,
     width = 1400,
@@ -1032,41 +935,6 @@ setwd("..")
 
 rm(list = ls())
 
-
-
-
-
-##################################
-#Evolution of vaccination in Spain
-##################################
-
-#Load data
-#load("Data/FullPeriod_Spain.RData")
-#setwd("Figures")
-#vacSpain <- colMeans(Vac)
-#for(i in 1:(length(vacSpain)-1)){
-#    if(vacSpain[i] > vacSpain[i+1]){
-#        vacSpain[i+1] <- vacSpain[i]}
-#}
-#dates <- as.Date(names(vacSpain))
-#Variants <- factor(variants, labels = c("Original", "Alpha", "Delta", "Omicron"))
-#datVac <- data.frame(vacSpain, dates, Variants)
-#
-##Create the plot
-#jpeg(file = "Evolution_Vacciantion_Spain.jpeg", height = 800, width = 800)
-#ggplot(datVac, aes(x = dates)) +
-#    theme_bw() +
-#    geom_area(aes(y = vacSpain, color = Variants, fill = Variants), alpha = 0.6) +
-#    xlab("Date") + 
-#    ylab("Vaccination rate %") + 
-#    scale_color_manual("COVID-19 Variant", 
-#        values=c("#009e73", "#999999", "#E69F00", "#56B4E9")) +
-#    scale_fill_manual("COVID-19 Variant", 
-#        values=c("#009e73","#999999", "#E69F00", "#56B4E9")) +
-#    theme(text = element_text(size = 20))
-#dev.off()
-#rm(list = ls())
-#setwd("..")
 
 
 

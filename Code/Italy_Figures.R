@@ -84,7 +84,7 @@ r_P2$Period <- rep("P2", nrow(r_P2))
 res_total <- rbind(r_P1, r_P2)
 
 #Create and Save the plot
-setwd("Supplementary_Figures")
+setwd("Figures")
 #dev.off()
 
 
@@ -119,7 +119,7 @@ Gam_Temp_Italy <- ggplot() +
 
 
 ggsave(
-    filename = "Gam_Temp_Italy.pdf",
+    filename = "Supplementary_Figure_10.pdf",
     plot = Gam_Temp_Italy,
     scale = 1,
     width = 1000,
@@ -129,7 +129,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_Temp_Italy.jpeg",
+    filename = "Supplementary_Figure_10.jpeg",
     plot = Gam_Temp_Italy,
     scale = 1,
     width = 1400,
@@ -207,7 +207,7 @@ res_total <- rbind(r_P1, r_P2)
 #Create and Save the plot
 
 #Create and Save the plot
-setwd("Supplementary_Figures")
+setwd("Figures")
 #dev.off()
 
 
@@ -242,7 +242,7 @@ Gam_SH_Italy <- ggplot() +
 
 
 ggsave(
-    filename = "Gam_SH_Italy.pdf",
+    filename = "Supplementary_Figure_11.pdf",
     plot = Gam_SH_Italy,
     scale = 1,
     width = 1000,
@@ -252,7 +252,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Gam_SH_Italy.jpeg",
+    filename = "Supplementary_Figure_11.jpeg",
     plot = Gam_SH_Italy,
     scale = 1,
     width = 1400,
@@ -264,41 +264,4 @@ ggsave(
 setwd("..")
 
 rm(list = ls())
-
-
-
-
-##################################
-#Evolution of vaccination in Italy
-##################################
-
-#Prepare the data for the plot
-#setwd("Supplementary_Figures")
-#vacItaly <- colMeans(Vac)
-#for(i in 1:(length(vacItaly)-1)){
-#    if(vacItaly[i] > vacItaly[i+1]){
-#        vacItaly[i+1] <- vacItaly[i]}
-#}
-#dates <- as.Date(names(vacItaly))
-#Variants <- factor(variants, labels = c("Original", "Alpha", "Delta", "Omicron"))
-#datVac <- data.frame(vacItaly, dates, Variants)
-#
-#
-##Create and save the plor
-#jpeg(file = "Vaccination_Italy.jpeg", height = 800, width = 1200)
-#ggplot(datVac, aes(x = dates)) +
-#    theme_bw() +
-#    geom_area(aes(y = vacItaly, color = Variants, fill = Variants), alpha = 0.6) +
-#    xlab("Date") + 
-#    ylab("Vaccination rate %") + 
-#    scale_color_manual("COVID-19 Variant", 
-#        values=c("#009e73", "#999999", "#E69F00", "#56B4E9")) +
-#    scale_fill_manual("COVID-19 Variant", 
-#        values=c("#009e73","#999999", "#E69F00", "#56B4E9")) +
-#    theme(text = element_text(size = 20))
-#dev.off()
-#
-#
-#rm(list = ls())
-#setwd("..")
 

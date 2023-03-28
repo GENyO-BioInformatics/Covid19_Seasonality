@@ -8,9 +8,17 @@ The folder "RawData" contains three files: SpainRawData.RData, ItaliaRawData.RDa
 ## Code, results and figures
 Using the Launch_code.R file, all the results and figures that appear in the article are generated. Specifically, the Launch_code.R runs the files:
 
-The files Process_Spain_Raw.R, Process_Italy_Raw.R and Process_Europe_Raw.R process the data files SpainRawData.RData, ItaliaRawData.RData and EuropeRawData.RData to prepare the data for analysis.
+### Process data
 
-The files Spain_models.R, Europe_models.R and Italy_models.R apply the GAM models to the processed data and obtains the tables included in the study.
+ * The files Process_Spain_Raw.R, Process_Italy_Raw.R and Process_Europe_Raw.R process the data files SpainRawData.RData, ItaliaRawData.RData and EuropeRawData.RData to prepare the data for analysis.
 
-The files Spain_Figures.R, Europe_Figures.R and Italy_Figure.R create from the processed data and the results of the GAM models the figures contained in the article
+### Apply models and results
+
+* The file GAM_Function.R cotains the neccessary functions to apply the GAM models.
+
+* The files Spain_models.R, Europe_models.R and Italy_models.R apply the GAM models to the processed data and obtains the tables included in the study.
+
+### Figures
+
+* The files Spain_Figures.R, Europe_Figures.R and Italy_Figure.R create from the processed data and the results of the GAM models the figures contained in the article
 

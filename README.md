@@ -3,7 +3,7 @@ This repository contains the functions and data to reproduce results of the arti
 
 ## Data
 
-The folder "Data" contains three files: SpainRawData.RData, ItaliaRawData.RData and EuropeRawData.RData. Each file contains the different variables downloaded and analyzed for each of the European countries and the regions of Spain and Italy.
+The "Data" folder consists of three files, namely SpainRawData.RData, ItaliaRawData.RData, and EuropeRawData.RData. These files contain the various variables that were downloaded and analyzed for each of the European countries, as well as the regions of Spain and Italy.
 
 ## Code, results and figures
 Using the Run_code.R file, all the results and figures that appear in the article are generated. Neverthless, each of the files that contains the different functions can also be executed individually.

@@ -6,18 +6,14 @@
 require(dlnm)
 require(mgcv)
 require(visreg)
-require(corrplot)
 require(mctest)
 require(rlist)
 require(ggplot2)
 require(RColorBrewer)
 require(gridExtra)
-require(oddsratio)
 require(dplyr)
 require(patchwork)
-require(hrbrthemes)
-require(forestplot)
-require(metafor)
+
 
 ####################
 ## Initial Period
@@ -50,6 +46,7 @@ save(res_P1_Temp_Europe, res_P1_SH_Europe,
 setwd("..")
 
 #Save tables models results P1
+dir.create("Tables", showWarnings = FALSE)
 setwd("Tables")
 #Calculate adjust p-values
 res_P1_Temp_Europe$Gam[,3:6] <- apply(res_P1_Temp_Europe$Gam[,3:6], 2, function(x){

@@ -2,26 +2,22 @@
 ## Procesing Europe Raw data
 ###################################
 #R packages
-library(dlnm)
-library(mgcv)
-library(visreg)
-library(corrplot)
-library(mctest)
-library(rlist)
-library(ggplot2)
-library(RColorBrewer)
-library(gridExtra)
-library(oddsratio)
-library(dplyr)
-library(patchwork) # To display 2 charts together
-library(hrbrthemes)
-library(forestplot)
-library(metafor)
+require(dlnm)
+require(mgcv)
+require(visreg)
+require(mctest)
+require(rlist)
+require(ggplot2)
+require(RColorBrewer)
+require(gridExtra)
+require(dplyr)
+require(patchwork)
+
 
 ######################
 # FULL PERIOD
 ######################
-setwd("RawData")
+setwd("Data")
 load("ItalyRawData.RData")
 setwd("..")
 
@@ -81,7 +77,7 @@ rm(list = ls())
 ####################
 ### INITIAL PERIOD
 ####################
-setwd("RawData")
+setwd("Data")
 load("ItalyRawData.RData")
 setwd("..")
 
@@ -135,7 +131,7 @@ rm(list = ls())
 ####################
 ### FINAL PERIOD
 ####################
-setwd("RawData")
+setwd("Data")
 load("ItalyRawData.RData")
 setwd("..")
 

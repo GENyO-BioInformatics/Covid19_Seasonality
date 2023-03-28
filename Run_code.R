@@ -1,13 +1,17 @@
 ##################
 #Launch all code
 ##################
-#Install the neccessary packages
+#Install the necessary packages
 
+packages <- c("ggplot2", "dlnm", "mgcv", "visreg", "mctest", "rlist", 
+    "EpiEstim", "RColorBrewer", "gridExtra", "dplyr", "patchwork")
 
-#Create the necessary folders
-dir.create("Data")
-dir.create("Figures")
-dir.create("Tables")
+for (p in packages) {
+    if (!require(p, character.only = TRUE)) {
+        install.packages(p)
+    }
+}
+
 
 #Process Raw Data
 system("Rscript Code/Process_Spain_Raw.R")

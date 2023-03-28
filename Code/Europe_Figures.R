@@ -10,19 +10,18 @@
 require(dlnm)
 require(mgcv)
 require(visreg)
-require(corrplot)
 require(mctest)
 require(rlist)
 require(ggplot2)
 require(RColorBrewer)
 require(gridExtra)
-require(oddsratio)
 require(dplyr)
 require(patchwork)
-require(hrbrthemes)
-require(forestplot)
-require(metafor)
 
+
+
+#Create directory
+dir.create("Figures", showWarnings = FALSE)
 
 #Load GAM results
 load("Data/GAM_Europe_P1.RData")

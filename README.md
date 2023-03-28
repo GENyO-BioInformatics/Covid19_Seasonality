@@ -1,12 +1,12 @@
 # Covid19_Seasonality
 This repository contains the functions and data to reproduce results of the article: "Examining the Impact of Population Immunity on the Relationship Between Climate Variables and SARS-CoV-2 Transmission"
 
-## Raw Data
+## Data
 
-The folder "RawData" contains three files: SpainRawData.RData, ItaliaRawData.RData and EuropeRawData.RData. Each file contains the different variables downloaded and analyzed for each of the European countries and the regions of Spain and Italy.
+The folder "Data" contains three files: SpainRawData.RData, ItaliaRawData.RData and EuropeRawData.RData. Each file contains the different variables downloaded and analyzed for each of the European countries and the regions of Spain and Italy.
 
 ## Code, results and figures
-Using the Launch_code.R file, all the results and figures that appear in the article are generated. Neverthless, each of the files that contains the different functions can also be executed individually.
+Using the Run_code.R file, all the results and figures that appear in the article are generated. Neverthless, each of the files that contains the different functions can also be executed individually.
 
 ### Process data
 
@@ -14,7 +14,7 @@ Using the Launch_code.R file, all the results and figures that appear in the art
 
 ### Apply models and results
 
-* The file GAM_Function.R cotains the neccessary functions to apply the GAM models.
+* The file GAM_Function.R contains the neccessary functions to apply the GAM models.
 
 * The files Spain_models.R, Europe_models.R and Italy_models.R apply the GAM models to the processed data and obtains the tables included in the study.
 

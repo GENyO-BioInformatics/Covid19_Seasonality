@@ -118,7 +118,7 @@ Gam_Temp_Italy <- ggplot() +
 
 
 ggsave(
-    filename = "Supplementary_Figure_10.pdf",
+    filename = "Supplementary_Figure_S15.pdf",
     plot = Gam_Temp_Italy,
     scale = 1,
     width = 1000,
@@ -128,7 +128,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_10.jpeg",
+    filename = "Supplementary_Figure_S15.jpeg",
     plot = Gam_Temp_Italy,
     scale = 1,
     width = 1400,
@@ -241,7 +241,7 @@ Gam_SH_Italy <- ggplot() +
 
 
 ggsave(
-    filename = "Supplementary_Figure_11.pdf",
+    filename = "Supplementary_Figure_S17.pdf",
     plot = Gam_SH_Italy,
     scale = 1,
     width = 1000,
@@ -251,7 +251,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_11.jpeg",
+    filename = "Supplementary_Figure_S17.jpeg",
     plot = Gam_SH_Italy,
     scale = 1,
     width = 1400,

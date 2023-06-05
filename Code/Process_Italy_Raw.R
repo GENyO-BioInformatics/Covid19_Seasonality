@@ -182,5 +182,56 @@ setwd("..")
 rm(list = ls())
 
 
+################################################################################
+##################### Prepare data for dlnm
+################################################################################
+
+###################
+# Data for dlmn
+###################
+setwd("Data")
+load("FullPeriod_Italy.RData")
+setwd("..")
+
+days <- 1:length(colnames(Re))
+names(days) <- colnames(Re)
+
+#Select only period 1 and period 2
+p1 <- which(colnames(Re)=="2020-06-01"):which(colnames(Re)=="2020-12-31")
+p2 <- which(colnames(Re)=="2021-06-01"):which(colnames(Re)=="2021-12-31")
+
+Re <- Re[,c(p1,p2)]
+Temperature <- Temperature[,c(p1,p2)]
+SH <- SH[, c(p1,p2)]
+StringencyIndex <- StringencyIndex[, c(p1,p2)]
+Vac <- Vac[, c(p1,p2)]
+days <- days[c(p1,p2)]
+dates <- colnames(Re)
+variants <- variants[c(p1,p2)]
+
+regions <- unique(rownames(Re))
+
+list_reg <- list()
+
+for(region in regions){
+    df_reg <- data.frame(
+        dates,
+        days,
+        Re = Re[rownames(Re) == region,],
+        Temperature = Temperature[rownames(Temperature) == region,],
+        SH = SH[rownames(Re) == region,],
+        StringencyIndex = StringencyIndex[rownames(StringencyIndex) == region,],
+        Vac = Vac[rownames(Vac) == region,],
+        variants
+    )
+    list_reg[[region]] <- df_reg
+}
+
+
+setwd("Data")
+save(list_reg, file = "Italy_dlnm.RData")
+setwd("..")
+
+rm(list = ls())
 
 

@@ -4,7 +4,8 @@
 #Install the necessary packages
 
 packages <- c("ggplot2", "dlnm", "mgcv", "visreg", "mctest", "rlist", 
-    "EpiEstim", "RColorBrewer", "gridExtra", "dplyr", "patchwork")
+    "EpiEstim", "RColorBrewer", "gridExtra", "dplyr", "patchwork", "splines",
+    "mvmeta")
 
 for (p in packages) {
     if (!require(p, character.only = TRUE)) {
@@ -28,5 +29,10 @@ system("Rscript Code/Italy_models.R")
 system("Rscript Code/Spain_Figures.R")
 system("Rscript Code/Europe_Figures.R")
 system("Rscript Code/Italy_Figures.R")
+
+#dlnm
+system("Rscript Code/Spain_dlnm.R")
+system("Rscript Code/Europe_dlnm.R")
+system("Rscript Code/Italy_dlnm.R")
 
 

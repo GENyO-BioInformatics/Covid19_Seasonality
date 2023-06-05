@@ -37,6 +37,8 @@ load("Data/GAM_Europe_P2.RData")
 ############################
 r_P1 <- res_P1_Temp_Europe$Data
 r_P2 <- res_P2_Temp_Europe$Data
+r_P1[[8]] <- r_P2[[8]] <- NULL
+
 
 for (i in names(r_P1)){
     r_P1[[i]]$Country = i
@@ -105,7 +107,7 @@ Gam_Temp_Europe <- ggplot() +
         legend.box.margin=margin(t = -6)
         )
 ggsave(
-    filename = "Supplementary_Figure_7.pdf",
+    filename = "Supplementary_Figure_S10.pdf",
     plot = Gam_Temp_Europe,
     scale = 1,
     width = 1000,
@@ -115,7 +117,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_7.jpeg",
+    filename = "Supplementary_Figure_S10.jpeg",
     plot = Gam_Temp_Europe,
     scale = 1,
     width = 1400,
@@ -143,6 +145,7 @@ load("Data/GAM_Europe_P2.RData")
 ############################
 r_P1 <- res_P1_SH_Europe$Data
 r_P2 <- res_P2_SH_Europe$Data
+r_P1[[8]] <- r_P2[[8]] <- NULL
 
 
 for (i in 1:length(r_P1)){
@@ -213,7 +216,7 @@ Gam_SH_Europe <- ggplot() +
         legend.box.margin=margin(t = -6)
     )
 ggsave(
-    filename = "Supplementary_Figure_8.pdf",
+    filename = "Supplementary_Figure_S11.pdf",
     plot = Gam_SH_Europe,
     scale = 1,
     width = 1000,
@@ -223,7 +226,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_8.jpeg",
+    filename = "Supplementary_Figure_S11.jpeg",
     plot = Gam_SH_Europe,
     scale = 1,
     width = 1400,
@@ -281,6 +284,7 @@ paisesVac <- c(
 paises <- paisesVac
 VacEurope$Country <- paises
 
+VacEurope <- subset(VacEurope, VacEurope$Country != "Montenegro")
 
 
 
@@ -313,7 +317,7 @@ Vaccination_Europe <- ggplot(VacEurope, aes(dates)) +
         strip.background = element_rect(fill = "white")
     )
 ggsave(
-    filename = "Supplementary_Figure_9.pdf",
+    filename = "Supplementary_Figure_S12.pdf",
     plot = Vaccination_Europe,
     scale = 1,
     width = 1000,
@@ -323,7 +327,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_9.jpeg",
+    filename = "Supplementary_Figure_S12.jpeg",
     plot = Vaccination_Europe,
     scale = 1,
     width = 1400,

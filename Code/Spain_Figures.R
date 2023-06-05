@@ -230,7 +230,7 @@ Gam_P1_Temp_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Supplementary_Figure_3.pdf",
+    filename = "Supplementary_Figure_S3.pdf",
     plot = Gam_P1_Temp_Spain,
     scale = 1,
     width = 1000,
@@ -240,7 +240,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_3.jpeg",
+    filename = "Supplementary_Figure_S3.jpeg",
     plot = Gam_P1_Temp_Spain,
     scale = 1,
     width = 1400,
@@ -285,7 +285,7 @@ Gam_P2_Temp_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Supplementary_Figure_4.pdf",
+    filename = "Supplementary_Figure_S4.pdf",
     plot = Gam_P2_Temp_Spain,
     scale = 1,
     width = 1000,
@@ -295,7 +295,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_4.jpeg",
+    filename = "Supplementary_Figure_S4.jpeg",
     plot = Gam_P2_Temp_Spain,
     scale = 1,
     width = 1400,
@@ -516,7 +516,7 @@ Gam_P1_SH_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Supplementary_Figure_5.pdf",
+    filename = "Supplementary_Figure_S5.pdf",
     plot = Gam_P1_SH_Spain,
     scale = 1,
     width = 1000,
@@ -526,7 +526,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_5.jpeg",
+    filename = "Supplementary_Figure_S5.jpeg",
     plot = Gam_P1_SH_Spain,
     scale = 1,
     width = 1400,
@@ -572,7 +572,7 @@ Gam_P2_SH_Spain <- ggplot() +
     )
 
 ggsave(
-    filename = "Supplementary_Figure_6.pdf",
+    filename = "Supplementary_Figure_S6.pdf",
     plot = Gam_P2_SH_Spain,
     scale = 1,
     width = 1000,
@@ -582,7 +582,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_6.jpeg",
+    filename = "Supplementary_Figure_S6.jpeg",
     plot = Gam_P2_SH_Spain,
     scale = 1,
     width = 1400,
@@ -800,7 +800,7 @@ Re_vs_SH <- ggplot(data = com, aes(x = date)) +
 
 
 ggsave(
-    filename = "Supplementary_Figure_1.pdf",
+    filename = "Supplementary_Figure_S1.pdf",
     plot = Re_vs_SH,
     scale = 1,
     width = 1200,
@@ -811,7 +811,7 @@ ggsave(
 
 
 ggsave(
-    filename = "Supplementary_Figure_1.jpeg",
+    filename = "Supplementary_Figure_S1.jpeg",
     plot = Re_vs_SH,
     scale = 1,
     width = 1400,
@@ -906,7 +906,7 @@ Vac_vs_SI <- ggplot(data = com, aes(x = date)) +
 
 
 ggsave(
-    filename = "Supplementary_Figure_2.pdf",
+    filename = "Supplementary_Figure_S2.pdf",
     plot = Vac_vs_SI,
     scale = 1,
     width = 1200,
@@ -916,7 +916,7 @@ ggsave(
 )
 
 ggsave(
-    filename = "Supplementary_Figure_2.jpeg",
+    filename = "Supplementary_Figure_S2.jpeg",
     plot = Vac_vs_SI,
     scale = 1,
     width = 1400,

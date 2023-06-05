@@ -1,5 +1,5 @@
 # Covid19_Seasonality
-This repository contains the functions and data to reproduce results of the article: "Examining the Impact of Population Immunity on the Relationship Between Climate Variables and SARS-CoV-2 Transmission"
+This repository contains the functions and data to reproduce results of the article: "Exploring the Interplay between Climate, Population Immunity and SARS-CoV-2 Transmission Dynamic in Mediterranean countries"
 
 ## Data
 
@@ -17,6 +17,8 @@ Using the Run_code.R file, all the results and figures that appear in the articl
 * The file GAM_Function.R contains the neccessary functions to apply the GAM models.
 
 * The files Spain_models.R, Europe_models.R and Italy_models.R apply the GAM models to the processed data and obtains the tables included in the study.
+
+* The files Spain_dlnm.R, Europe_dlnm.R and Italy.dlnm.R apply the DLNM models to the processed data and obtains the results included in the study
 
 ### Figures
 
